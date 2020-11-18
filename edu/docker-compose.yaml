@@ -1,0 +1,18 @@
+version: '3.4'
+
+volumes:
+  postgres-queues-data:
+
+services:
+  companies-db:
+    container_name: queues-db
+    image: postgres:13.0-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: queues
+      POSTGRES_USER: queues
+      POSTGRES_PASSWORD: queues
+    volumes:
+      - postgres-queues-data:/var/lib/postgresql/data
